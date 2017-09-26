@@ -1,16 +1,15 @@
 extends ../layout
 
 block content
+    a(href="/")
+        button(type="button") Go Back
     h1.
          #{title}
     table
         tr
             th Country
             th Country Code
-            th Flag
         - each country, i in countries
             tr
                 td #{country.countryName}
                 td #{country.countryCode}
-                td #{country.flagURL}
-                

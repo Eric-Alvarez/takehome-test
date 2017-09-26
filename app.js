@@ -3,6 +3,7 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
+    //http = require('http').Server(app),
     bodyParser = require('body-parser');
 
 var db = require('./model/db'),
@@ -15,15 +16,8 @@ var app = express();
 
 var scripts = require('./scripts/populateDB');
 
-
-// var request = require('request');
-// request('http://pastebin.com/raw/943PQQ0n', function (error, response, body) {
-//   console.log('error:', error); // Print the error if one occurred
-//   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-//   console.log('body:', body); // Print the HTML for the Google homepage.
-// });
-
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -37,7 +31,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/countries', countries);
-//app.use('/users', users);
+app.get('/download', function(req,res) {
+        res.download(__dirname + "/public/files/countries.txt", "countries.csv");
+        }   
+    );
+
+
+// http.createServer(app).listen(3000, function(){
+//   console.log('Listening...')
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
