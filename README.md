@@ -1,4 +1,4 @@
-foodora takehome test
+takehome test
 ======================
 
 ## Installation
