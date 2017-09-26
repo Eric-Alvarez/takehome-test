@@ -12,7 +12,7 @@ takehome test
 - I mocked up a simple HTML and CSS front-end, I did not want to complicate it by using Bootstrap or another front-end framework for such a simple app.
 - I assumed the test's purpose was not to design a nice front-end so I did not spend any appreciable time on it.
 
-##Architecture/Design Decisions
+## Architecture/Design Decisions
 - Simple boilerplate MVC app using NodeJS, Express, and MongoDB, with Jade layouts edited to fulfil intended function.
 -The model in this case is country, which simply uses a schema of country and country code. It is very open to extensibility and could include more information about each country.
 - On startup scripts/populateDB.js is run which pulls the country data from the pastebin link and populates the mongoDB database for later use.
